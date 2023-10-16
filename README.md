@@ -188,7 +188,7 @@ python tools/data_preprocess/parse_SG_from_COCO_caption_LLM_GQA.py
 
 We provide files regarding GQA dataset.  
 
-* [aligned_entity_dict.gqa.pkl](https://drive.google.com/file/d/1pV5VlcFGmL0PFU7bRqVvNKXhYtiMP9_p/view?usp=sharing), [aligned_predicate_dict_gqa.pkl](https://drive.google.com/file/d/1K-50K2mioFwF1T6VqU-C1sSjNYyXcUza/view?usp=sharing)
+* [aligned_entity_dict_gqa.pkl](https://drive.google.com/file/d/1pV5VlcFGmL0PFU7bRqVvNKXhYtiMP9_p/view?usp=sharing), [aligned_predicate_dict_gqa.pkl](https://drive.google.com/file/d/1K-50K2mioFwF1T6VqU-C1sSjNYyXcUza/view?usp=sharing)
 * [aligned_triplet_info_gqa_grounded.json](https://drive.google.com/file/d/1PW2UbRHQD4mXcFwmQxbzWnpyEHO1oQB7/view?usp=sharing)
 
 
@@ -210,7 +210,7 @@ bash train_rwt_vg.sh
 ``` 
 
 ### <img src="figure/gqa-logo.png" width="14"> GQA
-Please change variable in `cococaption_scenegraph` to *dataset/VG/aligned_triplet_info_gqa_grounded.json* (localized triplets). After changing variable, please run the code.
+Please change variable in `cococaption_scenegraph` to *dataset/GQA/aligned_triplet_info_gqa_grounded.json* (localized triplets). After changing variable, please run the code.
 ```python  
 bash train_gqa.sh
 ``` 
@@ -222,12 +222,12 @@ bash train_gqa.sh
 # Please change model checkpoint in test.sh file
 bash test.sh 
 ``` 
-We also provide pre-trained models 
+We also provide pre-trained models. 
 
 ### <img src="figure/vg-logo.png" width="14"> VG
 * [model_VG_VS3.pth](https://drive.google.com/file/d/17B6xl5kVB62Z6DXcH8mN4JLMgyVNzjK1/view?usp=sharing), [config.yml](https://drive.google.com/file/d/1uloVluYT2nV_HweHk-A15BeCoYZzpne-/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1tPFI7pGqyIiqJZWmnPa7JnExKe_Sxny2/view?usp=sharing)   
 * [model_VG_VS3_Rwt.pth](https://drive.google.com/file/d/1PcuYZoFCh4_I9ohhDn69koovbcUiSTkh/view?usp=sharing), [config.yml](https://drive.google.com/file/d/1ISAKROhclmjQiiXxJQymmOhxpn6uOwr2/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1vNkMs9TiAwb3wMJjaup85LZTIneOHJZt/view?usp=sharing)
 
 ### <img src="figure/gqa-logo.png" width="14"> GQA  
-* [model_GQA_VS3.pth](https://drive.google.com/file/d/17B6xl5kVB62Z6DXcH8mN4JLMgyVNzjK1/view?usp=sharing), [config.yml](https://drive.google.com/file/d/1uloVluYT2nV_HweHk-A15BeCoYZzpne-/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1tPFI7pGqyIiqJZWmnPa7JnExKe_Sxny2/view?usp=sharing)   
+* [model_GQA_VS3.pth](https://drive.google.com/file/d/16gwBc1ucjZoFhXm3VGJ5zy9htyLk5xLF/view?usp=sharing), [config.yml](https://drive.google.com/file/d/13eETIHQSCCGwlk6ZOEIUb_JwsXldUFnf/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1Zy5xpEGRT79PlKNUKsgLK0dK-aMJmTz5/view?usp=sharing)   
 
