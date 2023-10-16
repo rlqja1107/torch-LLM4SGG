@@ -156,7 +156,7 @@ After **Final** instruction, the output file is located in *dataset/VG* director
 
 ### Grounding Unlocalized Triplets  
 
-We follow same code in [VS3](https://github.com/zyong812/VS3_CVPR23/blob/main/tools/data_preprocess/parse_SG_from_COCO_captionV2.py) to ground unlocalized triplets. A pre-trained GLIP model is necessary to ground them.
+We follow same code in [VS3](https://github.com/zyong812/VS3_CVPR23/blob/main/tools/data_preprocess/parse_SG_from_COCO_captionV2.py) to ground unlocalized triplets. A pre-trained [GLIP](https://github.com/microsoft/GLIP) model is necessary to ground them. Please put the pre-trained GLIP model to *MODEL* directory. 
 ``` python  
 # Download pre-trained GLIP models
 mkdir MODEL
