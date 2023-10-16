@@ -34,7 +34,7 @@ pip install openai
 pip install einops shapely timm yacs tensorboardX ftfy prettytable pymongo tqdm pickle numpy
 pip install transformers 
 ```
-After downloading the dataset, please implement `setup.py` file.
+After downloading the dataset, please run `setup.py` file.
 ``` python  
 python setup.py build develop --user
 ```  
