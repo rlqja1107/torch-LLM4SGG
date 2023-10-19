@@ -97,7 +97,7 @@ for img_id, triplets in final_combined_triplet_info.items():
     triplet_cnt += len(per_img_triplet_set)
     img_cnt += 1
     
-print(f"# Image: {img_cnt} / # Triplet: {triplet_cnt}")
+#print(f"# Image: {img_cnt} / # Triplet: {triplet_cnt}")
 
 with open("dataset/VG/aligned_triplet_info_vg.json", 'w', encoding='utf-8') as f:
     json.dump(vs3_format_data, f, ensure_ascii=False, indent=4)
