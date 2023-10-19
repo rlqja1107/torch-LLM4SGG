@@ -221,7 +221,7 @@ class DatasetCatalog(object):
             "image_file": "dataset/VG/image_data.json"
         },
         
-        # Change caption_scene_graph_file variable whether choosing VG or GQA dataset.
+        # Change caption_scene_graph_file variable according to VG or GQA dataset.
         "cococaption_scene_graph": {
             "img_dir": "dataset/COCO/images",
             "img_meta_info_file": 'dataset/COCO/captions_train2017.json',
