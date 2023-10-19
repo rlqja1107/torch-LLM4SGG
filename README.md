@@ -1,9 +1,9 @@
-# Weakly Supervised Fine-grained Scene Graph Generation via Large Language Model  
+# LLM4SGG: Large Language Model for Weakly Supervised Scene Graph Generation  
 ![LLMs](https://img.shields.io/badge/Task-WSSGG-blue)
 ![LLMs](https://img.shields.io/badge/Model-GPT--3.5-green)
 ![LLMs](https://img.shields.io/badge/Model-LLMs-green)
 
-Code for the paper [Weakly Supervised Fine-grained Scene Graph Generation via Large Language Model](https://arxiv.org/pdf/2310.10404.pdf)
+Code for the paper [LLM4SGG: Large Language Model for Weakly Supervised Scene Graph Generation](https://arxiv.org/pdf/2310.10404.pdf)
 
 ## **Overview**    
 
