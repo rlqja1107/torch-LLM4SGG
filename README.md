@@ -3,7 +3,7 @@
 ![LLMs](https://img.shields.io/badge/Model-GPT--3.5-green)
 ![LLMs](https://img.shields.io/badge/Model-LLMs-green)
 
-
+The official source code for [LM4SGG: Large Language Model for Weakly Supervised Scene Graph Generation](https://arxiv.org/abs/2310.10404), accepted at [CVPR 2024](https://cvpr.thecvf.com/).
 
 ## **Overview**    
 
