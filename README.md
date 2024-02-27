@@ -240,11 +240,13 @@ We also provide pre-trained models.
 ## Citation  
 
 ``` 
-@article{kim2023weakly,
-  title={Weakly Supervised Fine-grained Scene Graph Generation via Large Language Model},
-  author={Kim, Kibum and Yoon, Kanghoon and Jeon, Jaeyeong and In, Yeonjun and Moon, Jinyoung and Kim, Donghyun and Park, Chanyoung},
-  journal={arXiv preprint arXiv:2310.10404},
-  year={2023}
+@misc{kim2023llm4sgg,
+      title={LLM4SGG: Large Language Model for Weakly Supervised Scene Graph Generation}, 
+      author={Kibum Kim and Kanghoon Yoon and Jaehyeong Jeon and Yeonjun In and Jinyoung Moon and Donghyun Kim and Chanyoung Park},
+      year={2023},
+      eprint={2310.10404},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
