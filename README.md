@@ -239,24 +239,24 @@ We also provide pre-trained models.
 
 
 ## Extra) Release other enhanced scene graph datasets 
+Two datasets are used for inference within the Visual Genome dataset.
 
 ### <img src="figure/vg-logo.png" width="14"> VG Caption  
 
 * Chain 1 Output: [dataset/VG_Caption/misaligned_triplets_vg_caption.json](https://drive.google.com/file/d/1xeSA-PM_UylYLDwv_IUmJv5AwkLWVlZr/view?usp=sharing)  
 * Chain 2 Output: [dataset/VG_Caption/aligned_entity_dict_vg_caption4vg.pkl](https://drive.google.com/file/d/1hnMqe0kQbEmp2iaC9fhd9RECX-TSyHDL/view?usp=sharing), [dataset/VG_Caption/aligned_predicate_dict_vg_caption4vg.pkl](https://drive.google.com/file/d/15FF_kQRz9a-ZM-684nFqnT4i17a4-Z2V/view?usp=sharing)  
-* Unlocalized Scene Graphs: [dataset/VG_Caption/misaligned_triplets_vg_caption.json](https://drive.google.com/file/d/1xeSA-PM_UylYLDwv_IUmJv5AwkLWVlZr/view?usp=drive_link)
 * Grounded Scene Graphs (VS3 format): [dataset/VG_Caption/aligned_triplet_info_vg_caption4vg_grounded.json](https://drive.google.com/file/d/1Q3XFmeJPbH-4wB20oXfOAA0fCSQTWc2Q/view?usp=sharing)  
 
 
 
 #### Train with VG Caption  
 
-After changing variable in `vgcaption_scene_graph` path to `dataset/VG_Caption/aligned_triplet_info_vg_caption4vg_grounded.json` within [*maskrcnn_benchmark/config/paths_catalog.py*](https://github.com/rlqja1107/torch-LLM4SGG/blob/master/maskrcnn_benchmark/config/paths_catalog.py), run following shell.  
+Once you change the variable in `vgcaption_scene_graph` path to `dataset/VG_Caption/aligned_triplet_info_vg_caption4vg_grounded.json` within [*maskrcnn_benchmark/config/paths_catalog.py*](https://github.com/rlqja1107/torch-LLM4SGG/blob/master/maskrcnn_benchmark/config/paths_catalog.py), run the following shell.  
 
 ``` python  
 bash train_vg_caption.sh
 ``` 
-*For information on downloading images or captions, please refer to [README.md](dataset/VG_Caption/README.md)*
+*For information on downloading captions, please refer to [README.md](dataset/VG_Caption/README.md)*
 
 ### <img src="figure/conceptual_caption.png" width="39"> CC Caption  
 
@@ -266,7 +266,7 @@ bash train_vg_caption.sh
 
 #### Train with CC Caption  
 
-After changing variable in `cccaption_scene_graph` path to `dataset/CC/aligned_triplet_info_cc4vg_grounded.json` within [*maskrcnn_benchmark/config/paths_catalog.py*](https://github.com/rlqja1107/torch-LLM4SGG/blob/master/maskrcnn_benchmark/config/paths_catalog.py), run following shell.  
+Once you change the variable in `cccaption_scene_graph` path to `dataset/CC/aligned_triplet_info_cc4vg_grounded.json` within [*maskrcnn_benchmark/config/paths_catalog.py*](https://github.com/rlqja1107/torch-LLM4SGG/blob/master/maskrcnn_benchmark/config/paths_catalog.py), run the following shell.  
 
 ``` python  
 bash train_cc_caption.sh
