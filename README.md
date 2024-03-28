@@ -7,7 +7,7 @@ The official source code for [LM4SGG: Large Language Model for Weakly Supervised
 
 ## **Overview**    
 
-<img src="figure/Introduction.png" width="600">
+<img src="figure/Introduction.png" width="600"> 
 <!--![img](figure/Introduction.png)    -->
 
 Addressing two issues inherent in the conventional approach([Parser](https://github.com/vacancy/SceneGraphParser)+Knowledge Base([WordNet](https://dl.acm.org/doi/pdf/10.1145/219717.219748)))  
