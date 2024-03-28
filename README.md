@@ -27,9 +27,9 @@ Regarding an LLM, we employ *gpt-3.5-turbo* in [ChatGPT](https://chat.openai.com
 ## <img src="figure/TODO.png" width="15"> TODO List  
 
 - [ ] Release prompts and codes for training the model with Conceptual caption dataset
-- [ ] Release enhanced scene graph datasets of Conceptual caption
-- [ ] Release prompts and codes for training the model with Visual Genome caption dataset
-- [ ] Release enhanced scene graph datasets of Visual Genome caption
+- [x] Release enhanced scene graph datasets of Conceptual caption
+- [x] Release prompts and codes for training the model with Visual Genome caption dataset
+- [x] Release enhanced scene graph datasets of Visual Genome caption
 
 ## <img src="figure/installation-logo_.png" width="15"> **Installation**  
 Python: 3.9.0
@@ -236,6 +236,44 @@ We also provide pre-trained models.
 
 ### <img src="figure/gqa-logo.png" width="14"> GQA  
 * [model_GQA_VS3.pth](https://drive.google.com/file/d/16gwBc1ucjZoFhXm3VGJ5zy9htyLk5xLF/view?usp=sharing), [config.yml](https://drive.google.com/file/d/13eETIHQSCCGwlk6ZOEIUb_JwsXldUFnf/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1Zy5xpEGRT79PlKNUKsgLK0dK-aMJmTz5/view?usp=sharing)   
+
+
+## Extra) Release other enhanced scene graph datasets 
+
+### <img src="figure/vg-logo.png" width="14"> VG Caption  
+
+* Chain 1 Output: [dataset/VG_Caption/misaligned_triplets_vg_caption.json](https://drive.google.com/file/d/1xeSA-PM_UylYLDwv_IUmJv5AwkLWVlZr/view?usp=sharing)  
+* Chain 2 Output: [dataset/VG_Caption/aligned_entity_dict_vg_caption4vg.pkl](https://drive.google.com/file/d/1hnMqe0kQbEmp2iaC9fhd9RECX-TSyHDL/view?usp=sharing), [dataset/VG_Caption/aligned_predicate_dict_vg_caption4vg.pkl](https://drive.google.com/file/d/15FF_kQRz9a-ZM-684nFqnT4i17a4-Z2V/view?usp=sharing)  
+* Unlocalized Scene Graphs: [dataset/VG_Caption/misaligned_triplets_vg_caption.json](https://drive.google.com/file/d/1xeSA-PM_UylYLDwv_IUmJv5AwkLWVlZr/view?usp=drive_link)
+* Grounded Scene Graphs (VS3 format): [dataset/VG_Caption/aligned_triplet_info_vg_caption4vg_grounded.json](https://drive.google.com/file/d/1Q3XFmeJPbH-4wB20oXfOAA0fCSQTWc2Q/view?usp=sharing)  
+
+
+
+#### Train with VG Caption  
+
+After changing variable in `vgcaption_scene_graph` path to `dataset/VG_Caption/aligned_triplet_info_vg_caption4vg_grounded.json` within [*maskrcnn_benchmark/config/paths_catalog.py*](https://github.com/rlqja1107/torch-LLM4SGG/blob/master/maskrcnn_benchmark/config/paths_catalog.py), run following shell.  
+
+``` python  
+bash train_vg_caption.sh
+``` 
+*For information on downloading images or captions, please refer to [README.md](dataset/VG_Caption/README.md)*
+
+### <img src="figure/conceptual_caption.png" width="39"> CC Caption  
+
+* Chain 1 Output: [dataset/CC/misaligned_triplets_cc.json](https://drive.google.com/file/d/1wTUozYXxWYl9J6hzesxjVnPgMU_9nUXX/view?usp=sharing)  
+* Chain 2 Output: [dataset/CC/aligned_entity_dict_cc4vg.pkl](https://drive.google.com/file/d/1hQhRQT5HQ6KH3NvaXu6pd5_gx7yV5t9v/view?usp=sharing), [dataset/CC/aligned_predicate_dict_cc4vg.pkl](https://drive.google.com/file/d/14d1BlJ2D1h0W1Q2-OTQHAX3ifmjPVvRq/view?usp=sharing)  
+* Grounded Scene Graphs (VS3 format): [dataset/CC/aligned_triplet_info_cc4vg_grounded.json](https://drive.google.com/file/d/1iItCiKzdRF7S-eWSXKtQiN2_sK6SfN0_/view?usp=sharing)  
+
+#### Train with CC Caption  
+
+After changing variable in `cccaption_scene_graph` path to `dataset/CC/aligned_triplet_info_cc4vg_grounded.json` within [*maskrcnn_benchmark/config/paths_catalog.py*](https://github.com/rlqja1107/torch-LLM4SGG/blob/master/maskrcnn_benchmark/config/paths_catalog.py), run following shell.  
+
+``` python  
+bash train_cc_caption.sh
+``` 
+
+*For information on downloading images or captions, please refer to [README.md](dataset/CC/README.md)*
+
 
 ## Citation  
 

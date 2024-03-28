@@ -18,7 +18,7 @@ from .caption import CaptionTSV
 from .lvis import LvisDetection
 from .pseudo_data import PseudoData
 from .phrasecut import PhrasecutDetection
-from .visual_genome150 import VG150Dataset, COCOCaptionSceneGraphDataset, VGCaptionSceneGraphDataset, UnboundedVGSceneGraphDataset
+from .visual_genome150 import VG150Dataset, COCOCaptionSceneGraphDataset, VGCaptionSceneGraphDataset, UnboundedVGSceneGraphDataset, CCCaptionSceneGraphDataset
 from .open_image import OIDataset
 __all__ = ["COCODataset", "TSVDataset", "ODTSVDataset", "ConcatDataset", "PascalVOCDataset", "Background",
            "ModulatedDataset", "MixedDataset", "CocoDetection", "FlickrDataset", "RefExpDataset", "GQADataset",

@@ -862,6 +862,39 @@ class VGCaptionSceneGraphDataset(torch.utils.data.Dataset):
     def __len__(self):
         return len(self.valid_img_ids)
 
+class CCCaptionSceneGraphDataset(VGCaptionSceneGraphDataset):
+    def __init__(self, img_dir, img_meta_info_file, caption_scene_graph_file, transforms=None, tokenizer=None, train_text_input_type='obj_categories', open_vocabulary_mode=False, rwt=False, choice='VG'):
+        super(CCCaptionSceneGraphDataset, self).__init__(img_dir, img_meta_info_file, caption_scene_graph_file, transforms, tokenizer, train_text_input_type, open_vocabulary_mode, rwt, choice)
+
+    def _load_all_image_infos(self, img_meta_info_file):
+        # orginal image meta infos
+        with open(img_meta_info_file, 'r') as fin:
+            self.org_caption_infos = json.load(fin)
+
+        self.img_info = {str(x['id']): x for k, x in self.org_caption_infos.items()}
+        
+    def __getitem__(self, index):
+        img_id = self.valid_img_ids[index]
+        img_filename = f"{self.img_dir}/{self.img_info[img_id]['file_name']}"
+        img = Image.open(img_filename).convert("RGB")
+        org_img_size = img.size
+        if org_img_size[0] != self.img_info[img_id]['width'] or org_img_size[1] != self.img_info[img_id]['height']:
+            print('='*20, ' ERROR index ', str(index), ' ', str(org_img_size), ' ', str(self.img_info[img_id]['width']), ' ', str(self.img_info[img_id]['height']), ' ', '='*20)
+
+        target = self.get_groundtruth(index)
+        if self.transforms is not None:
+            img, target = self.transforms(img, target)
+        max_query_len = 310 if len(self.ind_to_classes) == 151 else 430
+        self._add_extra_infos(index, target, org_img_size, max_query_len = max_query_len)
+
+        # at least 2 objects and 1 relation
+        if len(target) >= 2 and len(target.get_field('relation').nonzero()) >= 1:
+            return img, target, index
+        else:
+            return self[index - random.randint(1,10)] # resample a valid one
+
+
+
 class COCOCaptionSceneGraphDataset(VGCaptionSceneGraphDataset):
     def __init__(self, img_dir, img_meta_info_file, caption_scene_graph_file, transforms=None, tokenizer=None, train_text_input_type='obj_categories', open_vocabulary_mode=False, rwt=False, choice='VG'):
         super(COCOCaptionSceneGraphDataset, self).__init__(img_dir, img_meta_info_file, caption_scene_graph_file, transforms, tokenizer, train_text_input_type, open_vocabulary_mode, rwt, choice)

@@ -63,7 +63,7 @@ def build_dataset(cfg, dataset_list, transforms, dataset_catalog, is_train=True,
 
         args["transforms"] = transforms
 
-        if 'vg150' in dataset_name or (dataset_name in ['cococaption_scene_graph', 'vgcaption_scene_graph', 'unbounded_vg_scene_graph']):
+        if 'vg150' in dataset_name or (dataset_name in ['cococaption_scene_graph', 'vgcaption_scene_graph', 'unbounded_vg_scene_graph', 'cccaption_scene_graph']):
             args.update({'tokenizer': extra_args['tokenizer']})
         else:
             args.update(extra_args)

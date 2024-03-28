@@ -347,6 +347,19 @@ class DatasetCatalog(object):
                     factory="OIDataset",
                     args=args,
                 )
+            elif 'cccaption_scene_graph' in name:
+                args = copy.deepcopy(DatasetCatalog.DATASETS[name])
+                data_dir = try_to_find(args["img_dir"], return_dir=True)
+                for k, v in args.items():
+                    args[k] = os.path.join(data_dir, v)
+                args['train_text_input_type'] = cfg.MODEL.DYHEAD.RELATION_TRAIN_TEXT_INPUT_TYPE
+                args['open_vocabulary_mode'] = cfg.DATASETS.VG150_OPEN_VOCAB_MODE
+                args['rwt'] = cfg.MODEL.RWT
+                return dict(
+                    factory="CCCaptionSceneGraphDataset",
+                    args=args,
+                )
+
             # language-supervised SGG
             elif 'cococaption_scene_graph' in name:
                 args = copy.deepcopy(DatasetCatalog.DATASETS[name])
