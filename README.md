@@ -238,7 +238,7 @@ We also provide pre-trained models.
 * [model_GQA_VS3.pth](https://drive.google.com/file/d/16gwBc1ucjZoFhXm3VGJ5zy9htyLk5xLF/view?usp=sharing), [config.yml](https://drive.google.com/file/d/13eETIHQSCCGwlk6ZOEIUb_JwsXldUFnf/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1Zy5xpEGRT79PlKNUKsgLK0dK-aMJmTz5/view?usp=sharing)   
 
 
-## Extra) Release other enhanced scene graph datasets 
+## **Extra) Release other enhanced scene graph datasets** 
 Two datasets are used for inference within the Visual Genome dataset.
 
 ### <img src="figure/vg-logo.png" width="14"> VG Caption  
