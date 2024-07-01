@@ -1,0 +1,56 @@
+
+
+MODEL:
+  RWT: False
+  WEIGHT: 'MODEL/glip_tiny_model_o365_goldg_cc_sbu.pth' # glip_tiny_model_o365_goldg_cc_sbu.pth, glip_large_model
+  LANGUAGE_BACKBONE:
+    MAX_QUERY_LEN: 310 # 310 revision
+    FREEZE: True
+  BACKBONE:
+    FREEZE_CONV_BODY_AT: -1
+    FREEZE: True
+  FPN:
+    FREEZE: True
+  RPN:
+    FREEZE: False
+  ATSS:
+    DETECTIONS_PER_IMG: 36
+    NMS_TH: 0.5
+  DYHEAD:
+    NUM_CLASSES: 151
+    SCORE_AGG: "MEAN"
+    RELATION_CONSISTENCY_ON: True
+    RELATION_REP_REFINER: False
+  ROI_RELATION_HEAD:
+    PREDICT_USE_BIAS: False
+    LONGTAIL_PART_DICT: [None, 'h', 'h', 'h', 't', 'b', 't', 't', 'h', 'h', 'b', 't', 't', 't', 'b', 't', 't',
+                                'h', 't', 'b', 't', 'b', 'b', 't', 't', 'b', 't', 'b', 't', 'h', 't']
+DATASETS:
+  CHOICE: 'VG' #
+  TRAIN: ('vgcaption_scene_graph',) # cococaption_scene_graph, cccaption_scene_graph
+  TEST: ('vg150_test',) # vg150_test
+  DISABLE_SHUFFLE: True
+  VG150_SPLIT_KEY: 'split_GLIPunseen'
+
+# training
+SOLVER:
+  VAL_MIN_ITERATION: 100000
+  MAX_EPOCH: 30 # revision
+  CHECKPOINT_PERIOD: 5000  # revision
+  FIND_UNUSED_PARAMETERS: False
+  BASE_LR: 0.000005
+  LANG_LR: 0.00001
+  STEPS: (0.6, 0.8)
+  IMS_PER_BATCH: 1
+  TEST_WITH_INFERENCE: True
+  USE_AMP: True
+AUGMENT:
+  FLIP_PROB_TRAIN: 0.0
+
+# testing
+TEST:
+  EVAL_TASK: detection
+  DURING_TRAINING: True
+  IMS_PER_BATCH: 1
+
+OUTPUT_DIR: 'output/swin_L_v2'
