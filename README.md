@@ -66,7 +66,9 @@ The detailed paths of localized triplets are in [*maskrcnn_benchmark/config/path
 
 Models trained on caption datasets (e.g., `COCO`, `CC`, and `VG Caption`) are evaluated on VG test dataset.
 
-The required file (i.e., localized triplets made by LLM4SGG) and pre-trained model (i.e., GLIP) will be automatically downloaded to facilitate your implementation. Simply change the `DATASET` name as needed.
+The required file (i.e., localized triplets made by LLM4SGG) and pre-trained model (i.e., GLIP) will be automatically downloaded to facilitate your implementation. Simply change the `DATASET` name as needed. 
+
+*※ The required files for Grounded Scene Graphs could not be downloaded due to the web error. If you have this problem, please visit https://huggingface.co/datasets/kb-kim/LLM4SGG and directly download the files.*
 
 #### Single GPU
 ```python  
@@ -100,19 +102,20 @@ bash scripts/{multi_gpu or single_gpu}/train_coco4gqa.sh
 # Please change model checkpoint in test.sh file
 bash scripts/test.sh 
 ``` 
-We also provide pre-trained models and other results. 
+We also provide pre-trained models and other results. The link for Grounded Scene Graphs is connected to Google Drive.
 
 ### <img src="./figure/coco-logo2.png" width="14"> COCO → <img src="figure/vg-logo.png" width="14"> VG test  
 * [model_VG_VS3.pth](https://drive.google.com/file/d/17B6xl5kVB62Z6DXcH8mN4JLMgyVNzjK1/view?usp=sharing), [config.yml](https://drive.google.com/file/d/1uloVluYT2nV_HweHk-A15BeCoYZzpne-/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1Hsy0nqRa_J61Yhqp-lJ_XxLl2D4pBCw1/view?usp=sharing)   
 * [model_VG_VS3_Rwt.pth](https://drive.google.com/file/d/1PcuYZoFCh4_I9ohhDn69koovbcUiSTkh/view?usp=sharing), [config.yml](https://drive.google.com/file/d/1ISAKROhclmjQiiXxJQymmOhxpn6uOwr2/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1vNkMs9TiAwb3wMJjaup85LZTIneOHJZt/view?usp=sharing)
 
+* Grounded Scene Graphs: [aligned_triplet_coco4cg_grounded.json](https://drive.google.com/file/d/15d5nmJHO4AVDLnXvq7l9VfMarXBkqH9A/view?usp=sharing)
 
 
 ### <img src="figure/vg-logo.png" width="14"> VG Caption → <img src="figure/vg-logo.png" width="14"> VG test  
 
 * Chain 1 Output: [misaligned_triplets_vg_caption.json](https://drive.google.com/file/d/1xeSA-PM_UylYLDwv_IUmJv5AwkLWVlZr/view?usp=sharing)  
 * Chain 2 Output: [aligned_entity_dict_vg_caption4vg.pkl](https://drive.google.com/file/d/1hnMqe0kQbEmp2iaC9fhd9RECX-TSyHDL/view?usp=sharing), [aligned_predicate_dict_vg_caption4vg.pkl](https://drive.google.com/file/d/15FF_kQRz9a-ZM-684nFqnT4i17a4-Z2V/view?usp=sharing)  
-* Grounded Scene Graphs: [aligned_triplet_vgcaption4vg_grounded.json](https://huggingface.co/datasets/kb-kim/LLM4SGG/resolve/main/aligned_triplet_vgcaption4vg_grounded.json)  
+* Grounded Scene Graphs: [aligned_triplet_vgcaption4vg_grounded.json](https://drive.google.com/file/d/1Q3XFmeJPbH-4wB20oXfOAA0fCSQTWc2Q/view?usp=sharing)  
 
 * Training Result: [evaluation_res.txt](https://drive.google.com/file/d/1q0fhzJEkg_3481GOrNjimbxKS7eSHzMA/view?usp=sharing)
 
@@ -120,14 +123,17 @@ We also provide pre-trained models and other results.
 
 * Chain 1 Output: [misaligned_triplets_cc.json](https://drive.google.com/file/d/1wTUozYXxWYl9J6hzesxjVnPgMU_9nUXX/view?usp=sharing)  
 * Chain 2 Output: [aligned_entity_dict_cc4vg.pkl](https://drive.google.com/file/d/1hQhRQT5HQ6KH3NvaXu6pd5_gx7yV5t9v/view?usp=sharing), [aligned_predicate_dict_cc4vg.pkl](https://drive.google.com/file/d/14d1BlJ2D1h0W1Q2-OTQHAX3ifmjPVvRq/view?usp=sharing)  
-* Grounded Scene Graphs: [aligned_triplet_cc4vg_grounded.json](https://huggingface.co/datasets/kb-kim/LLM4SGG/resolve/main/aligned_triplet_cc4vg_grounded.json)  
+* Grounded Scene Graphs: [aligned_triplet_cc4vg_grounded.json](https://drive.google.com/file/d/1iItCiKzdRF7S-eWSXKtQiN2_sK6SfN0_/view?usp=sharing)  
 
 
 * Training Result: [model_CC4VG.pth](https://drive.google.com/file/d/1JqYdC42aKiBioObN3EKe3b9iTPUROt5k/view?usp=sharing),  [evaluation_res.text](https://drive.google.com/file/d/1tkpsUTJvnW8g59bAeYuCmBFCY3IqJCOe/view?usp=sharing)  
 
 
+
+
 ### <img src="./figure/coco-logo2.png" width="14"> COCO → <img src="figure/gqa-logo.png" width="14"> GQA test  
 * [model_GQA_VS3.pth](https://drive.google.com/file/d/16gwBc1ucjZoFhXm3VGJ5zy9htyLk5xLF/view?usp=sharing), [config.yml](https://drive.google.com/file/d/13eETIHQSCCGwlk6ZOEIUb_JwsXldUFnf/view?usp=sharing), [evaluation_res.txt](https://drive.google.com/file/d/1Zy5xpEGRT79PlKNUKsgLK0dK-aMJmTz5/view?usp=sharing)   
+* Grounded Scene Graphs: [aligned_triplet_coco4gqa_grounded.json](https://drive.google.com/file/d/1WukiY2YpuMxnBOdVuATWgjqr7xMRJ1AA/view?usp=sharing)
 
 
 
