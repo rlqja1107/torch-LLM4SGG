@@ -662,6 +662,7 @@ class VGCaptionSceneGraphDataset(torch.utils.data.Dataset):
             if not os.path.isfile(f"{data_path}/aligned_triplet_vgcaption4vg_grounded.json"):
                 # download LLM4SGG file
                 download_dataset("https://huggingface.co/datasets/kb-kim/LLM4SGG/resolve/main/aligned_triplet_vgcaption4vg_grounded.json?download=true", data_path)
+                os.system(f"mv {data_path}/aligned_triplet_vgcaption4vg_grounded.json?download=true {data_path}/aligned_triplet_vgcaption4vg_grounded.json")
         self.train_text_input_type = train_text_input_type
         self.img_dir = img_dir
         self.transforms = transforms
@@ -878,7 +879,7 @@ class CCCaptionSceneGraphDataset(VGCaptionSceneGraphDataset):
         if not os.path.isfile(f"{data_path}/aligned_triplet_cc4vg_grounded.json"):
             # download LLM4SGG file
             download_dataset("https://huggingface.co/datasets/kb-kim/LLM4SGG/resolve/main/aligned_triplet_cc4vg_grounded.json?download=true", data_path)
-
+            os.system(f"mv {data_path}/aligned_triplet_cc4vg_grounded.json?download=true {data_path}/aligned_triplet_cc4vg_grounded.json")
         super(CCCaptionSceneGraphDataset, self).__init__(img_dir, img_meta_info_file, caption_scene_graph_file, transforms, tokenizer, train_text_input_type, open_vocabulary_mode, rwt, choice)
 
     def _load_all_image_infos(self, img_meta_info_file):
@@ -917,12 +918,13 @@ class COCOCaptionSceneGraphDataset(VGCaptionSceneGraphDataset):
             if not os.path.isfile(f"{data_path}/aligned_triplet_coco4vg_grounded.json"):
                 # download LLM4SGG file
                 download_dataset("https://huggingface.co/datasets/kb-kim/LLM4SGG/resolve/main/aligned_triplet_coco4vg_grounded.json?download=true", data_path)
-                 
+                os.system(f"mv {data_path}/aligned_triplet_coco4vg_grounded.json?download=true {data_path}/aligned_triplet_coco4vg_grounded.json")
         else:
-            data_path = "dataset/VG"
+            data_path = "dataset/GQA"
             if not os.path.isfile(f"{data_path}/aligned_triplet_coco4gqa_grounded.json"):
                 # download LLM4SGG file
                 download_dataset("https://huggingface.co/datasets/kb-kim/LLM4SGG/resolve/main/aligned_triplet_coco4gqa_grounded.json?download=true", data_path)
+                os.system(f"mv {data_path}/aligned_triplet_coco4gqa_grounded.json?download=true {data_path}/aligned_triplet_coco4gqa_grounded.json")
         super(COCOCaptionSceneGraphDataset, self).__init__(img_dir, img_meta_info_file, caption_scene_graph_file, transforms, tokenizer, train_text_input_type, open_vocabulary_mode, rwt, choice)
 
     def _load_all_image_infos(self, img_meta_info_file):

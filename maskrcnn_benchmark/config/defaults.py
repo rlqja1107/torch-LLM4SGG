@@ -755,7 +755,7 @@ _C.SEARCH.MUTATION_PROB = 0.1
 # ---------------------------------------------------------------------------- #
 _C.SOLVER = CN()
 _C.SOLVER.USE_AMP = False
-_C.SOLVER.VAL_MIN_ITERATION = 5000
+_C.SOLVER.VAL_MIN_ITERATION = 50000
 _C.SOLVER.MAX_ITER = 40000
 _C.SOLVER.MULTI_MAX_ITER = ()  # set different max epoch for different stage
 _C.SOLVER.MAX_EPOCH = 0  # any epoch number>0 will overwrite max_iter

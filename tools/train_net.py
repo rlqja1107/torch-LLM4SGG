@@ -8,7 +8,6 @@ from maskrcnn_benchmark.utils.env import setup_environment  # noqa F401 isort:sk
 
 import os
 import sys
-del sys.path[6]
 import torch
 import argparse
 from maskrcnn_benchmark.config import cfg, try_to_find
@@ -169,7 +168,7 @@ def main():
         help="path to config file",
         type=str,
     )
-    parser.add_argument("--task_config", default="configs/vg150/finetune_VG.yaml")
+    parser.add_argument("--task_config", default="configs/vg150/finetune_gqa.yaml")
     parser.add_argument("--local_rank", type=int, default=0)
     parser.add_argument(
         "--skip-test",

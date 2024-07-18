@@ -28,7 +28,7 @@ MODEL:
                                 'h', 't', 'b', 't', 'b', 'b', 't', 't', 'b', 't', 'b', 't', 'h', 't']
 DATASETS:
   CHOICE: 'GQA' #GQA, VG
-  TRAIN: ('cococaption_scene_graph',)
+  TRAIN: ('cococaption_scene_graph4GQA',)
   TEST: ('GQA_200_test',)
   DISABLE_SHUFFLE: True
   VG150_SPLIT_KEY: 'split_GLIPunseen'

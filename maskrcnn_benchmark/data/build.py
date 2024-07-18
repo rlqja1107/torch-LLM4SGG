@@ -63,7 +63,7 @@ def build_dataset(cfg, dataset_list, transforms, dataset_catalog, is_train=True,
 
         args["transforms"] = transforms
 
-        if 'vg150' in dataset_name or (dataset_name in ['cococaption_scene_graph', 'vgcaption_scene_graph', 'unbounded_vg_scene_graph', 'cccaption_scene_graph']):
+        if 'vg150' in dataset_name or (dataset_name in ['cococaption_scene_graph', 'vgcaption_scene_graph', 'unbounded_vg_scene_graph', 'cccaption_scene_graph', 'cococaption_scene_graph4GQA']):
             args.update({'tokenizer': extra_args['tokenizer']})
         else:
             args.update(extra_args)
@@ -101,7 +101,7 @@ def build_dataset(cfg, dataset_list, transforms, dataset_catalog, is_train=True,
             if 'openimage' in dataset_name:
                 dataset = factory(split = args['split'], img_dir = args['img_dir'], ann_file = args['ann_file'], cate_info_file=args['cate_info_file'], tokenizer = args['tokenizer'], transforms=args['transforms'])
             else:
-                if "GQA" in dataset_name:
+                if "GQA" in dataset_name and dataset_name != 'cococaption_scene_graph4GQA':
                     dataset = factory(split = args['split'], img_dir = args['img_dir'], dict_file = args['dict_file'], train_file = args['train_file'], test_file = args['test_file'], transforms=args['transforms'], filter_empty_rels=True, num_im=-1, num_val_im=5000,
                 filter_duplicate_rels=True, filter_non_overlap=True, flip_aug=False, custom_eval=False, custom_path='', tokenizer=args['tokenizer'])
                 else:

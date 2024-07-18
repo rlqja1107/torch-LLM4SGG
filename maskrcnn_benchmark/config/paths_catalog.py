@@ -237,7 +237,7 @@ class DatasetCatalog(object):
         "cococaption_scene_graph4GQA": {
             "img_dir": "dataset/COCO/images",
             "img_meta_info_file": 'dataset/COCO/captions_train2017.json',
-            "caption_scene_graph_file": "dataset/VG/aligned_triplet_coco4gqa_grounded.json"
+            "caption_scene_graph_file": "dataset/GQA/aligned_triplet_coco4gqa_grounded.json"
         },
 
         "vgcaption_scene_graph": {
@@ -257,13 +257,7 @@ class DatasetCatalog(object):
             "ann_file": "openimages/open_image_v6/annotations/vrd-%s-anno.json",
             "cate_info_file": "openimages/open_image_v6/annotations/categories_dict.json",
         },
-        
-        "GQA_200": {
-            "img_dir": "dataset/GQA/images",
-            "dict_file": "dataset/GQA/GQA_200_ID_Info.json",
-            "train_file": "dataset/GQA/GQA_200_Train.json",
-            "test_file": "dataset/GQA/GQA_200_Test.json",
-        },
+
 
 
     }
@@ -314,28 +308,6 @@ class DatasetCatalog(object):
                     args=args,
                 )
                     
-            elif 'GQA' in name:
-                # name should be something like VG_stanford_filtered_train
-                p = name.rfind("_")
-                name, split = name[:p], name[p+1:]
-                assert name in DatasetCatalog.DATASETS and split in {'train', 'val', 'test'}
-                #data_dir = DatasetCatalog.DATA_DIR
-                args = copy.deepcopy(DatasetCatalog.DATASETS[name])
-                data_dir = try_to_find(args["img_dir"], return_dir=True)
-                for k, v in args.items():
-                    args[k] = os.path.join(data_dir, v)
-                args['split'] = split
-                # IF MODEL.RELATION_ON is True, filter images with empty rels
-                # else set filter to False, because we need all images for pretraining detector
-                args['filter_non_overlap'] = (not cfg.MODEL.ROI_RELATION_HEAD.USE_GT_BOX) and cfg.MODEL.RELATION_ON and cfg.MODEL.ROI_RELATION_HEAD.REQUIRE_BOX_OVERLAP
-                args['filter_empty_rels'] = cfg.MODEL.RELATION_ON
-                args['flip_aug'] = cfg.MODEL.FLIP_AUG
-                args['custom_eval'] = False
-                args['custom_path'] = '.'
-                return dict(
-                    factory="GQADataset",
-                    args=args,
-                )
 
             
                 
@@ -397,6 +369,29 @@ class DatasetCatalog(object):
                     factory="VGCaptionSceneGraphDataset",
                     args=args,
                 )
+            elif 'GQA' in name:
+                # name should be something like VG_stanford_filtered_train
+                p = name.rfind("_")
+                name, split = name[:p], name[p+1:]
+                assert name in DatasetCatalog.DATASETS and split in {'train', 'val', 'test'}
+                #data_dir = DatasetCatalog.DATA_DIR
+                args = copy.deepcopy(DatasetCatalog.DATASETS[name])
+                data_dir = try_to_find(args["img_dir"], return_dir=True)
+                for k, v in args.items():
+                    args[k] = os.path.join(data_dir, v)
+                args['split'] = split
+                # IF MODEL.RELATION_ON is True, filter images with empty rels
+                # else set filter to False, because we need all images for pretraining detector
+                args['filter_non_overlap'] = (not cfg.MODEL.ROI_RELATION_HEAD.USE_GT_BOX) and cfg.MODEL.RELATION_ON and cfg.MODEL.ROI_RELATION_HEAD.REQUIRE_BOX_OVERLAP
+                args['filter_empty_rels'] = cfg.MODEL.RELATION_ON
+                args['flip_aug'] = cfg.MODEL.FLIP_AUG
+                args['custom_eval'] = False
+                args['custom_path'] = '.'
+                return dict(
+                    factory="GQADataset",
+                    args=args,
+                )
+
             # Unbounded SGG
             elif 'unbounded_vg_scene_graph' in name:
                 args = copy.deepcopy(DatasetCatalog.DATASETS[name])

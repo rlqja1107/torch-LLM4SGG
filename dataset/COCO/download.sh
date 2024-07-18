@@ -4,9 +4,14 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
+
 dest_folder="$1"
 echo $dest_folder
 cd "$dest_folder"
+
+# COCO_triplets_labels.npy
+wget -N --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1QGqBAxxJcXRpsy7B-lECMq4or94XJ1IC' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1QGqBAxxJcXRpsy7B-lECMq4or94XJ1IC" -O COCO_triplet_labels.npy && rm -rf ~/cookies.txt
+
 wget -N http://images.cocodataset.org/zips/val2017.zip
 
 if test -e "val2017.zip"; then

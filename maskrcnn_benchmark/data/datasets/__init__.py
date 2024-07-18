@@ -9,8 +9,8 @@ from .modulated_coco import ModulatedDataset, CocoDetection, CocoGrounding
 from .flickr import FlickrDataset
 from .refexp import RefExpDataset
 from .mixed import MixedDataset
-#from .gqa import GQADataset
-from .GQA import GQADataset
+from .gqa import GQADataset
+#from .GQA import GQADataset
 
 
 from .coco_dt import CocoDetectionTSV
